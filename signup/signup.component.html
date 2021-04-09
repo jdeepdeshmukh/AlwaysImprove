@@ -1,0 +1,117 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="userReg">
+            <div class="card">
+                <div class="card-header">
+                    User Registration
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input [ngClass]="{'is-invalid' : submitCheck && userReg.controls.name.errors }" formControlName="name" type="text" class="form-control" />
+                        <div *ngIf="submitCheck && userReg.controls.name.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.name.errors.required">
+                                Please enter your name
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Username/Email</label>
+                        <input [ngClass]="{'is-invalid': submitCheck && userReg.controls.username.errors }" formControlName="username" type="text" class="form-control" />
+                        <div *ngIf="submitCheck && userReg.controls.username.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.username.errors.required">
+                                Please enter your email
+                            </div>
+                            <div *ngIf="userReg.controls.username.errors.email">
+                                Please enter a correct email
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input [ngClass]="{'is-invalid': submitCheck && userReg.controls.password.errors }" formControlName="password" type="password" class="form-control" />
+                        <div *ngIf="submitCheck && userReg.controls.password.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.password.errors.required">
+                                Please enter a password
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Re-Password</label>
+                        <input [ngClass]="{'is-invalid': submitCheck && userReg.controls.confirm_password.errors }" formControlName="confirm_password" type="password" class="form-control" />
+                        <div *ngIf="submitCheck && userReg.controls.confirm_password.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.confirm_password.errors.required">
+                                Please enter a re-password
+                            </div>
+                            <div *ngIf="userReg.controls.confirm_password.errors.passError">
+                                Password does not match
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input [ngClass]="{'is-invalid': submitCheck && userReg.controls.contact.errors }" formControlName="contact" type="text" class="form-control" />
+                        <div *ngIf="submitCheck && userReg.controls.contact.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.contact.errors.required">
+                                Please enter your contact number
+                            </div>
+                            <div *ngIf="userReg.controls.contact.errors.numError">
+                                Please enter numbers only
+                            </div>
+                            <div *ngIf="userReg.controls.contact.errors.conError">
+                                Please enter minimum 10 digit
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea [ngClass]="{'is-invalid': submitCheck && userReg.controls.address.errors }" formControlName="address" class="form-control"></textarea>
+                        <div *ngIf="submitCheck && userReg.controls.address.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.address.errors.required">
+                                Please enter your address
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <br />
+                        Male <input [ngClass]="{'is-invalid': submitCheck && userReg.controls.gender.errors }" type="radio" formControlName="gender" value="male"/>
+                        Female <input [ngClass]="{'is-invalid': submitCheck && userReg.controls.gender.errors }" type="radio" formControlName="gender" value="female"/>
+                        <div *ngIf="submitCheck && userReg.controls.gender.errors" class="invalid-feedback">
+                            <div *ngIf="userReg.controls.gender.errors.required">
+                                Please select your gender
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <select [ngClass]="{'is-invalid': submitCheck && userReg.controls.city.errors }" class="form-control" formControlName="city">
+                            <div *ngIf="submitCheck && userReg.controls.city.errors" class="invalid-feedback">
+                                <div *ngIf="userReg.controls.city.errors.required">
+                                    Please select your city
+                                </div>
+                            </div>
+                            <option value="">Select</option>
+                            <option value="indore">Indore</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="pune">Pune</option>
+                            <option value="delhi">Delhi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" (click)="save()" class="btn btn-success">Signup</button>
+                </div>
+            </div>
+            </form>
+
+
+
+            <!-- <button [ngClass]="{'btn-danger btn-sm' : x}" class="btn" (click)="demo()">OK</button> -->
+        </div>
+    </div>
+</div>
